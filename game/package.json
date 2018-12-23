@@ -1,7 +1,7 @@
 {
   "name": "lightcycles",
   "version": "1.0.0",
-  "description": "The arcade game Lightcycles as seen in Tron: Legacy",
+  "description": "An arcade game inspired by the game Lightcycles as seen in Tron: Legacy",
   "main": "index.js",
   "scripts": {
     "dev": "webpack --config webpack/development.config.babel.js",
