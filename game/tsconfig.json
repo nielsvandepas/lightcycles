@@ -1,0 +1,16 @@
+{
+	"compilerOptions": {
+    "module": "es6",
+    "target": "es2018",
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "sourceMap": true
+  },
+  "include": [
+    "source/**/*"
+  ],
+	"exclude": [
+    "public",
+		"node_modules"
+	]
+}

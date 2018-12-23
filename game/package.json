@@ -1,0 +1,40 @@
+{
+  "name": "lightcycles",
+  "version": "1.0.0",
+  "description": "The arcade game Lightcycles as seen in Tron: Legacy",
+  "main": "index.js",
+  "scripts": {
+    "dev": "webpack --config webpack/development.config.babel.js",
+    "watch": "webpack --watch --config webpack/development.config.babel.js",
+    "serve": "webpack-dev-server --config webpack/serve.config.babel.js",
+    "build": "webpack --config webpack/production.config.babel.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "lightcycles",
+    "arcade",
+    "tron"
+  ],
+  "author": "Niels van de Pas <ik@nielsvandepas.nl>",
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/core": "^7.2.2",
+    "@babel/preset-env": "^7.2.3",
+    "@babel/register": "^7.0.0",
+    "babel-loader": "^8.0.4",
+    "css-loader": "^2.0.2",
+    "html-webpack-plugin": "^3.2.0",
+    "node-sass": "^4.11.0",
+    "sass-loader": "^7.1.0",
+    "style-loader": "^0.23.1",
+    "ts-loader": "^5.3.2",
+    "typescript": "^3.2.2",
+    "webpack": "^4.28.2",
+    "webpack-cli": "^3.1.2",
+    "webpack-dev-server": "^3.1.13",
+    "webpack-merge": "^4.1.5"
+  },
+  "browserslist": [
+    "last 2 chrome versions"
+  ]
+}
