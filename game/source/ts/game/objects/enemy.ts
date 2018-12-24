@@ -3,18 +3,14 @@ import FrameData from '../frame-data';
 
 export default class Enemy extends Character {
   constructor() {
-    super();
+    super('#df740c');
 
     this.position.x = window.innerWidth - this.size.x - 100;
     this.position.y = (window.innerHeight / 2) + this.size.y;
+    this.velocity.x = -this.speed;
   }
 
   public update(frame: FrameData): void {
-
-  }
-
-  public render(context: CanvasRenderingContext2D): void {
-    context.fillStyle = '#df740c';
-    context.fillRect(this.position.x, this.position.y, this.size.x, this.size.y);
+    super.update(frame);
   }
 }

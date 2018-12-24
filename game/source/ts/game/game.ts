@@ -1,20 +1,28 @@
+import Enemy from './objects/enemy';
 import FrameData from './frame-data';
+import Input from './input/input';
 import StageHand from './stage-hand';
 import Player from './objects/player';
-import Enemy from './objects/enemy';
 
 export default class Game {
   private context: CanvasRenderingContext2D;
+  private input: Input;
   private stageHand: StageHand;
   private thread: number;
   private threadStarted: boolean;
+  private readonly frameRate: number;
+  private previousFrame: number;
 
-  constructor(context: CanvasRenderingContext2D) {
+  constructor(context: CanvasRenderingContext2D, input: Input) {
     this.context = context;
+    this.input = input;
     this.stageHand = new StageHand();
 
     this.loop = this.loop.bind(this);
     this.threadStarted = false;
+
+    this.frameRate = 15;
+    this.previousFrame = 0;
 
     this.setup();
   }
@@ -39,8 +47,14 @@ export default class Game {
   }
 
   private loop(): void {
-    this.update();
-    this.render();
+    const currentTime = Date.now();
+
+    if (currentTime - this.previousFrame >= 1000 / this.frameRate) {
+      this.previousFrame = currentTime;
+      this.update();
+      this.render();
+    }
+
     this.armLoop();
   }
 
@@ -50,7 +64,8 @@ export default class Game {
 
     const frame: FrameData = {
       collidables: this.stageHand.collidables,
-      stageHand: this.stageHand
+      stageHand: this.stageHand,
+      input: this.input
     } as FrameData;
 
     this.stageHand.objects.forEach(object => object.update(frame));

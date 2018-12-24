@@ -8,7 +8,7 @@ export default abstract class GameObject {
   public size: Vector2D;
 
   constructor() {
-    this.birth = new Date().getTime();
+    this.birth = Date.now();
     this.position = new Vector2D(0, 0);
     this.velocity = new Vector2D(0, 0);
     this.size = new Vector2D(0, 0);
@@ -18,7 +18,7 @@ export default abstract class GameObject {
   public abstract render(context: CanvasRenderingContext2D): void;
 
   public get age(): number {
-    return new Date().getTime() - this.birth;
+    return Date.now() - this.birth;
   }
 
   public abstract get isAlive(): boolean;

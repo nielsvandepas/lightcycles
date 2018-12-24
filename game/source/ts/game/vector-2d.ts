@@ -35,4 +35,8 @@ export default class Vector2D {
     const length = this.length;
     return new Vector2D(this.x / length, this.y / length);
   }
+
+  public get copy(): Vector2D {
+    return new Vector2D(this.x, this.y);
+  }
 }

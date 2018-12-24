@@ -2,9 +2,11 @@ import '../scss/style';
 
 import Game from './game/game';
 import Stage from './game/stage';
+import KeyboardInput from './game/input/keyboard-input';
 
 const stage = new Stage('body');
-const game = new Game(stage.context);
+const input = new KeyboardInput();
+const game = new Game(stage.context, input);
 
 window.addEventListener('keydown', startHandler);
 
